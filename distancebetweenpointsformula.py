@@ -1,17 +1,12 @@
 def finddistance(x1, y1, x2, y2):
   import math
-  import myfunctions
-  import time
-  import subprocess
-  import sys
-
   x2minusx1	= x2 - x1
   x2minusx1squared = x2minusx1 * x2minusx1
   y2minusy1 = y2 - y1
   y2minusy1squared = y2minusy1 * y2minusy1
   inside = x2minusx1squared + y2minusy1squared
   distance = math.sqrt(inside)
-  return distance
+  return distance, inside
 
 def calc():
   try:
@@ -28,8 +23,8 @@ def calc():
     x2 = float(input())
     print("\nPlease write your second point's y-value here: (as an integer or decimal)")
     y2= float(input())
-    distance = finddistance(x1, y1, x2, y2)
-    print('\nHere is the distance between the points:\n'+str(distance))
+    distance, inside = finddistance(x1, y1, x2, y2)
+    print(f'\nHere is the distance between the points:\n{distance} or √{inside}')
   except Exception:
     print("Something went wrong!")
   except KeyboardInterrupt:

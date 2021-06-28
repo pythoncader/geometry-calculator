@@ -20,8 +20,8 @@ def calc():
         dot_product = xs + ys
         print(f"\n\nThe dot product of the vectors is {dot_product}")
 
-        v1_magnitude = finddistance(0, 0, x1, y1)
-        v2_magnitude = finddistance(0, 0, x2, y2)
+        v1_magnitude, inside = finddistance(0, 0, x1, y1)
+        v2_magnitude, inside2 = finddistance(0, 0, x2, y2)
 
         cosine_of_angle = (dot_product/v1_magnitude)/v2_magnitude
         angle_between_vectors = math.acos(cosine_of_angle)

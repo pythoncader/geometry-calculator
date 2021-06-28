@@ -30,9 +30,9 @@ def calc():
         elif y1 == 0 and x1 == 0:
             sys.exit("\nNot a vector - starting and ending points are the same")
 
-        v_magnitude = finddistance(0, 0, x1, y1)
+        v_magnitude, inside = finddistance(0, 0, x1, y1)
 
-        print(f"\n\nThe vector's magnitude is {v_magnitude}")
+        print(f"\n\nThe vector's magnitude is {v_magnitude} or √{inside}")
 
         if quadrant != 6 and quadrant != 8:
             slope = y1/x1
