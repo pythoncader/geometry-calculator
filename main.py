@@ -1,6 +1,8 @@
 try:
-  import myfunctions
+  from tools import myfunctions
   import sys
+  import pyperclip
+  from menus import menuvolume, menuarea, menuperimeter, menufindingvalues, menuvectors
 except:
   sys.exit("Imports failed")
 
@@ -17,22 +19,29 @@ while True:
       continue
 
     if calculate == 1:
-        import menuvolume
-        menuvolume.calc()
+      print("hello world!")
+      text, answer = menuvolume.calc()
     elif calculate == 2:
-        import menuarea
-        menuarea.calc()
+      text, answer = menuarea.calc()
     elif calculate == 3:
-        import menuperimeter
-        menuperimeter.calc()
+      text, answer = menuperimeter.calc()
     elif calculate == 4:
-        import menufindingvalues
-        menufindingvalues.calc()
+      text, answer = menufindingvalues.calc()
     elif calculate == 5:
-        import menuvectors
-        menuvectors.calc()
+      text, answer = menuvectors.calc()
     else:
-        myfunctions.invalidinput()
+      text, answer = myfunctions.invalidinput()
+
+    if text != "":
+      print(f"{text} {answer}")
+      if answer != "":
+        yesorno = input("\nCopy To Clipboard?\n")
+        if "y" in yesorno or "s" in yesorno:
+          pyperclip.copy(answer)
+          print("\nCopied Successfully!")
+
+    myfunctions.runmainagain()
+
   except Exception:
     print("Something went wrong!")
   except KeyboardInterrupt:
